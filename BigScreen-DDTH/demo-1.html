@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KPMG-Demo-3</title>
+    <script src="./lib/echarts.min.js"></script>
+    <script src="./lib/jquery-3.2.0.min.js"></script>
+    <script src="./js/china.js"></script>
+    <script type="text/javascript">
+
+    </script>
+    <style>
+               /* * {
+  cursor: url('./img/pointer5.ico'),auto;
+}  */
+        p {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        body {
+            min-width: 1200px;
+            height: 100%;
+            background: url(./img/mapbc-1.png);
+            width: 1908px;
+        }
+        
+        #demo-2 {
+            min-width: 1400px;
+            height: 100%;
+            width: 1892px;
+            margin: 0 auto;
+            font-family: "思源黑体";
+            /* border: 1px  red solid; */
+        }
+        
+        .clear {
+            zoom: 1;
+        }
+        
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        #left,
+        #main,
+        #right {
+            float: left;
+            position: relative;
+        }
+        
+        #main {
+            margin: 0 15px;
+            height: 100%;
+            width: 1100px;
+        }
+       
+        #left{
+            /* border: 1px #13439f solid; */
+            border-radius: 6px;
+            height: 780px;
+            width: 368px;
+            margin-top:60px;
+            margin-bottom:50px;
+
+        }
+        #left-top {
+            
+            width: 368px;
+            height: 408px;
+     
+          
+            
+        }
+
+        
+        #left-bottom {
+    
+            width: 368px;
+            height:358px;
+            border-radius: 6px;
+            /*border: 1px #13439f solid;*/
+           
+        }
+        
+        #main-top {
+            width: 1100px;
+            height: 70px;
+           
+        }
+        
+        #main-center {
+            width: 1100px;
+            height: 736px;
+            margin-bottom: 20px;
+        }
+        
+        #right {
+          
+            width: 388px;
+            height: 890px;
+        }
+        
+        #right-top {
+            height: 358px;
+            width: 388px;
+            border-radius: 6px;
+            /* border: 1px #13439f solid; */
+            margin-bottom:50px;
+            margin-top:60px;
+
+        }
+        #right-bottom{
+            height: 358px;
+            width: 388px;
+            border-radius: 6px;
+            /* border: 1px #13439f solid; */
+            margin-bottom:60px;
+        }
+        
+        #main-bottom {
+            width: 1100px;
+            height: 100%;
+           
+        }
+        
+ 
+        
+        #time-left {
+            width: 254px;
+            height: 70px;
+            background: url(./img/logo-top-left.png) no-repeat 50% 100%;
+            text-align: center;
+            line-height: 70px;
+            float: left;
+            color: #5bbbf7;
+        }
+        
+        #time-right {
+            width: 254px;
+            height: 70px;
+            background: url(./img/logo-top-right.png) no-repeat 50% 100%;
+            float: left;
+            text-align: center;
+            line-height: 70px;
+            color: #5bbbf7;
+        }
+        #logo {
+            width: 492px;
+            height: 70px;
+           
+            background: url(./img/logotitle1.png) no-repeat  50% 50%;
+            margin:  0 auto;
+         
+        }
+        
+     
+        
+        #title-logo2 {
+            height: 70px;
+            width: 492px;
+            line-height: 70px;
+            color:#fff;
+            font-weight: bold;
+            text-align: center;
+            font-size: 24px;
+            background: url(./img/logotitle.png) no-repeat  65% 100%;
+        }
+        #bottom-left {
+            width: 254px;
+            height: 64px;
+            background: url(./img/logo-bottom-left.png) no-repeat 50% 75%;
+            float: left;
+        }
+        
+        #bottom-left a {
+            display: block;
+            width: 254px;
+            height: 64px;
+        }
+        
+        #bottom-right {
+            width: 254px;
+            height: 64px;
+            background: url(./img/logo-bottom-right.png) no-repeat 50% 75%;
+            float: left;
+        }
+        
+        #bottom-right a {
+            display: block;
+            width: 254px;
+            height: 64px;
+        }
+        
+     
+        
+        #globe {
+            width: 492px;
+            height: 64px;
+           
+            font-size: 18px;
+            text-align: center;
+            color:#ccc;
+            line-height: 64px;
+            margin: 0 auto;
+        }
+        #left-count{
+            /* border: 1px #13439f solid; */
+            height:50px;
+            border-radius: 6px;
+            text-align:center;
+            /* background: url(./img/ltLogo.png) no-repeat ; */
+           
+           
+            
+        }
+        #counttitle{
+            font-size:18px;
+            color:#c2e5fb;
+            font-weight: bold;
+            height:50px;
+            line-height: 50px;
+            margin-bottom:8px;
+            /* background:#e2690f; */
+            
+            
+        
+        }
+        #count{
+            font-size:24px;
+            color:#c2e5fb;
+            font-weight: bold;
+            height: 50px;
+            text-align: center;
+          
+        
+        }
+        #relation,#relation2{
+            height:890px;
+            width:1100px;
+            position:absolute;
+            opacity: 1;
+            z-index: 100;
+            display:none;
+            left:400px; 
+        }
+        #relation{
+            background: url('./img/mbbg.png');
+            background-position:0px -8px ;
+        }
+        /* #relation2{
+            z-index: 200;
+        } */
+        #relation-right-bottom2,#relation-left-bottom{
+              width:1100px;
+              height:890px;
+              position:absolute;
+              
+
+        }
+        #close,#close2{
+            width: 30px;
+            height:30px;
+           border-radius: 15px;
+           background:#aaa;
+           display: block;
+            position:absolute;
+            top:0;
+            right:20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .close-x{
+              background:red;
+              width: 20px;
+              height:20px;
+              border-radius: 10px;
+              display: block;
+            position:absolute;
+            top:5px;
+            right:5px;
+
+
+        }
+        .span1{
+            height:40px;
+            width: 40px;
+            background: black;
+            color: #fff;
+            margin-top: 10px;
+            display:inline-block;
+            line-height: 40px;
+        }
+        .span2{
+            height:40px;
+            width:10px;
+            color: #fff;
+            display:inline-block;
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="relation">
+               <div id="relation-right-bottom2"></div>
+               <span id="close"><a class="close-x"></a></span>
+    </div>
+  
+    <div id="demo-2" class="clear">
+        <div id="left" >
+           
+            <div id="left-top">
+               
+            </div>
+          
+            <div id="left-bottom"></div>
+        </div>
+        <div id="main">
+            <div id="main-top" class="clear">
+                <!-- <div id="time-left"></div> -->
+                <div id="logo">
+             
+                </div>
+                <!-- <div id="time-right"></div> -->
+
+            </div>
+            
+            <div id="main-center"></div>
+            <div id="main-bottom" class="clear">
+                <!-- <div id="bottom-left">
+                  
+                </div> -->
+                <div id="globe">
+                   
+                </div>
+                <!-- <div id="bottom-right">
+                  
+                </div> -->
+            </div>
+        </div>
+        <div id="right">
+            
+            <div id="right-top"></div>
+            <div id="right-bottom"></div>
+
+        </div>
+
+    </div>
+   
+    <script type="text/JavaScript" src="./js/bulid.js"></script>
+    <script src="./js/right-top.js"></script>
+    <script src="./js/right-bottom.js"></script>
+    <script src="./js/right-bottom2.js"></script>
+    <script src="./js/mian-center.js"></script>
+    <script src="./js/left-bottom.js"></script>
+    <script src="./js/left-top.js"></script>
+   
+   
+ 
+
+   <script>
+ var relation=document.getElementById('relation');
+ var close=document.getElementById('close');
+//  console.log(close);
+    close.onclick=function(){
+        relation.style.display = 'none';
+    }
+
+
+
+
+ 
+</script>
+ 
+      
+ 
+</body>
+
+</html>
+
+
+
+<body>
+ 
+
