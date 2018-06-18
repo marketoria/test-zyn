@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./lib/echarts.min.js"></script>
+    <script src="./js/world.js"></script>
+    <script src="./lib/jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" href="./iconfont/iconfont.css   ">
+    <link rel="stylesheet" href="./css/demo1.css">
+    <style>
+ 
+
+    </style>
+    <script type="text/javascript"> 
+    $(function(){
+    	function getContextPath(){   
+    	    var pathName = document.location.pathname;   
+    	    var index = pathName.substr(1).indexOf("/");   
+    	    var result = pathName.substr(0,index+1);   
+    	    return result;   
+    	} var path = getContextPath();
+    	console.info(path);
+//     	alert(window.location.pathname);
+    	
+    });
+    
+    
+    
+ var timer;  
+    var hidding = false;  
+    $(document).mousemove(function () {  
+        if(hidding){  
+          hidding = false;  
+          return;  
+        }  
+            if (timer) {  
+                clearTimeout(timer);  
+                timer = 0;  
+            }  
+            $('html').css({  
+                cursor: ''  
+            });
+            $('li').css({
+          	  cursor: ''  
+          })
+        timer = setTimeout(function () {  
+        hidding = true;  
+            $('html').css({  
+                cursor: 'none'  
+            });  
+            $('li').css({
+            	  cursor: 'none'  
+            })
+        }, 2000)  
+    });  
+
+</script> 
+</head>
+
+<body onMouseOver="window.status='';return true">
+
+    <iframe  id="visual" name="visual" src="../BigScreen-CH/demo-1.html" frameborder="0"  scrolling="no" style="width:1920px;height:906px">
+        
+    </iframe>
+
+    	 
+	 
+	 
+	  <ul class="carouselsmall-ct clear"  id="viewport">
+        <li date-index="1" class="active" id="maxleft">
+            <a data-href="../BigScreen-CH/demo-1.html"  target="visual"><img src="./img/smallbg-0.png" alt=""></a>
+        </li>
+        <li date-index="2">
+            <a data-href="../BigScreen-GREET/demo-1.html"  target="visual"><img src="./img/smallbg-1.png" alt=""></a>
+        </li>
+        <li date-index="3">
+            <a data-href="../BigScreen-DDO/demo-1.html"   target="visual"><img src="./img/smallbg-2.png" alt=""></a>
+        </li>
+        <li date-index="4">
+            <a data-href="../BigScreen-DDT/demo-1.html"  target="visual"><img src="./img/smallbg-3.png" alt=""></a>
+        </li>
+        <li date-index="5">
+             <a data-href="../BigScreen-DDTH/demo-1.html"  target="visual"><img src="./img/smallbg-4.png" alt=""></a>
+        </li>
+        <li date-index="6">
+           <a data-href="../BigScreen-RM/demo-1.html"  target="visual"><img src="./img/smallbg-5.png" alt=""></a>
+        </li>
+        <li date-index="7">
+            <a data-href="../BigScreen-SP/demo-1.html"  target="visual"><img src="./img/smallbg-6.png" alt=""></a>
+        </li>
+        <li date-index="8">
+              <a data-href="../BigScreen-CC/demo-1.html"  target="visual"><img src="./img/smallbg-7.png" alt=""></a>
+        </li>
+     </ul>
+ 
+</body>
+<script>
+      var oUl = document.getElementById('viewport');
+      var aA = oUl.getElementsByTagName('a');
+      var oIframe = document.getElementById('visual');
+      for(var i=0 ;i<aA.length; i++ ){
+        aA[i].onclick = function(){
+            oIframe.src=$(this).attr('data-href');
+        
+          
+      }
+    }
+   
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+ul,
+li,
+p,body
+ {
+    padding:0px;
+    margin:0px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    
+ background:black;
+    width: 1920px;
+   
+}
+
+
+
+.carouselsmall-ct {
+    width: 1892px;
+    height: 150px;
+    background:black;
+    margin: 0 auto;
+    margin-top:8px;
+}
+
+.carouselsmall-ct li {
+    float: left;
+    width: 230px;
+    height: 150px;
+    margin-right:6px;
+    opacity: 0.3;
+}
+
+.carouselsmall-ct li a {
+    display: block;
+    width: 230px;
+    height: 150px;
+}
+
+.carouselsmall-ct li:hover
+{
+    opacity:0.8;
+    cursor: pointer;
+}
+.carouselsmall-ct li :first-child
+{
+    margin-left: 5px;
+}
+.carouselsmall-ct li :last-child{
+    margin-right: 5px;
+}
